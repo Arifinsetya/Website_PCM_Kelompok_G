@@ -1,3 +1,5 @@
 from django.shortcuts import render
+from .models import Pengurus
 
-# Create your views here.
+def daftar(request):
+    return render(request, 'organisasi/daftar.html', {'pengurus': Pengurus.objects.all()})

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Organisasi | PCM{% endblock %}
+{% block content %}
+<h1>Struktur Organisasi</h1>
+<div class="grid">
+  {% for p in pengurus %}
+  <div class="card">
+    {% if p.foto %}<img src="{{ p.foto.url }}" alt="{{ p.nama }}">{% endif %}
+    <h3>{{ p.nama }}</h3>
+    <p><b>{{ p.jabatan }}</b><br>{{ p.bidang }}</p>
+  </div>
+  {% empty %}<p>Belum ada data pengurus.</p>{% endfor %}
+</div>
+{% endblock %}

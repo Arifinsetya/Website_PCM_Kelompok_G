@@ -1,3 +1,15 @@
 from django.db import models
 
-# Create your models here.
+class Pengurus(models.Model):
+    nama = models.CharField(max_length=100)
+    jabatan = models.CharField(max_length=100)
+    bidang = models.CharField(max_length=100, blank=True)
+    foto = models.ImageField(upload_to='pengurus/', blank=True, null=True)
+    urutan = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['urutan', 'nama']
+        verbose_name_plural = 'Pengurus'
+
+    def __str__(self):
+        return f'{self.nama} - {self.jabatan}'
