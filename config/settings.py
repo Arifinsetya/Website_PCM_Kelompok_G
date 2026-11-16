@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     'website-pcm-kelompok-g.onrender.com',
     'localhost',
     '127.0.0.1',
+    '*',  # Memastikan semua permintaan host diterima
 ]
 
 
