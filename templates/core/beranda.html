@@ -7,3 +7,19 @@
   <a class="btn" href="{% url 'publikasi:daftar' %}">Lihat Publikasi</a>
 </section>
 {% endblock %}
+<h2>Publikasi Terbaru</h2>
+<div class="grid">
+  {% for a in artikel_terbaru %}
+  <div class="card">
+    <h3><a href="{% url 'publikasi:detail' a.slug %}">{{ a.judul }}</a></h3>
+    <p>{{ a.isi|truncatewords:15 }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+<h2>Pengurus</h2>
+<div class="grid">
+  {% for p in pengurus %}
+  <div class="card"><h3>{{ p.nama }}</h3><p>{{ p.jabatan }}</p></div>
+  {% endfor %}
+</div>
