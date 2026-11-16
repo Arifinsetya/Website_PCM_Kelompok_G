@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Beranda | PCM{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Selamat Datang di Website PCM</h1>
+  <p>Pimpinan Cabang Muhammadiyah: berkemajuan, mencerahkan, dan melayani umat.</p>
+  <a class="btn" href="{% url 'publikasi:daftar' %}">Lihat Publikasi</a>
+</section>
+{% endblock %}

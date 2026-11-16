@@ -1,0 +1,28 @@
+{% load static %}
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}PCM{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a class="brand" href="{% url 'core:beranda' %}">PCM Kelompok G</a>
+      <nav>
+        <a href="{% url 'core:beranda' %}">Beranda</a>
+        <a href="{% url 'core:tentang' %}">Tentang</a>
+        <a href="{% url 'organisasi:daftar' %}">Organisasi</a>
+        <a href="{% url 'publikasi:daftar' %}">Publikasi</a>
+        <a href="{% url 'kontak:form' %}">Kontak</a>
+      </nav>
+    </header>
+    <main class="container">
+      {% if messages %} {% for m in messages %}
+      <div class="alert">{{ m }}</div>
+      {% endfor %} {% endif %} {% block content %}{% endblock %}
+    </main>
+    <footer class="footer">&copy; {% now "Y" %} PCM Kelompok G</footer>
+  </body>
+</html>
