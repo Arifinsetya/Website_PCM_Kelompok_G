@@ -2,7 +2,7 @@
 services:
   db:
     image: postgres:17
-    container_name: pcm_jebres_db
+    container_name: pcm_jebres_db_v2
     restart: unless-stopped
     environment:
       POSTGRES_DB: pcm_jebres
@@ -19,7 +19,7 @@ services:
   
   web:
     build: .
-    container_name: pcm_jebres_web
+    container_name: pcm_jebres_web_v2
     restart: unless-stopped
     env_file:
       - .env
