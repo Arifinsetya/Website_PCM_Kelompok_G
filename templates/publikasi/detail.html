@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}{{ a.judul }}{% endblock %}
+{% block content %}
+<article class="card">
+  <h1>{{ a.judul }}</h1>
+  <small>{{ a.kategori }} &bull; {{ a.tanggal|date:"d F Y" }}</small>
+  {% if a.gambar %}<img src="{{ a.gambar.url }}" alt="{{ a.judul }}">{% endif %}
+  <p>{{ a.isi|linebreaksbr }}</p>
+  <a href="{% url 'publikasi:daftar' %}">&larr; Kembali</a>
+</article>
+{% endblock %}

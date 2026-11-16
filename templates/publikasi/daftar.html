@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Publikasi | PCM{% endblock %}
+{% block content %}
+<h1>Publikasi</h1>
+<div class="grid">
+  {% for a in artikel %}
+  <div class="card">
+    {% if a.gambar %}<img src="{{ a.gambar.url }}" alt="{{ a.judul }}">{% endif %}
+    <small>{{ a.kategori }} &bull; {{ a.tanggal|date:"d M Y" }}</small>
+    <h3><a href="{% url 'publikasi:detail' a.slug %}">{{ a.judul }}</a></h3>
+    <p>{{ a.isi|truncatewords:20 }}</p>
+  </div>
+  {% empty %}<p>Belum ada publikasi.</p>{% endfor %}
+</div>
+{% endblock %}
